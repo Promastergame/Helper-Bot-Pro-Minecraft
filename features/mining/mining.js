@@ -260,14 +260,52 @@ async function makeStaircaseToY(bot,targetY=8){
 // ──────────────────────────────────────────────────────────────────────────────
 // Выбор направления (крипторандом, мягкие фильтры)
 // ──────────────────────────────────────────────────────────────────────────────
+function dangerAhead(bot, steps=2){
+  const { dx, dz } = forwardVec(bot);
+  const fdx = Math.round(dx), fdz = Math.round(dz);
+  const here = flooredPos(bot);
+  for(let i=1; i<=steps; i++){
+    const pos     = here.offset(fdx * i, 0, fdz * i);
+    const posDown = pos.offset(0,-1,0);
+    const name    = blockNameAt(bot,pos);
+    const down    = blockNameAt(bot,posDown);
+    if(isDangerBlockName(name)) return { pos, name };
+    if(isDangerBlockName(down)) return { pos: posDown, name: down };
+    if(!down || down === 'air') return { pos: posDown, name: 'void' }; // обрыв/яма
+  }
+  return null;
+}
+
+function scoreYaw(bot, yawDelta){
+  const yaw = bot.entity.yaw;
+  const dir = { dx: Math.sin(yaw + yawDelta), dz: Math.cos(yaw + yawDelta) };
+  const here = flooredPos(bot);
+  let score = 0;
+  for(let i=1;i<=2;i++){
+    const pos = here.offset(Math.round(dir.dx)*i,0,Math.round(dir.dz)*i);
+    const below = pos.offset(0,-1,0);
+    const n = blockNameAt(bot,pos);
+    const dn = blockNameAt(bot, below);
+    if(isDangerBlockName(n) || isDangerBlockName(dn)) score += 4;
+    else if(!dn || dn === 'air') score += 2; // яма/обрыв — избегаем
+    else if(n && n !== 'air') score += 0.1; // плотные блоки — небольшая цена
+  }
+  return score + Math.random()*0.05; // легкая рандомизация
+}
+
 async function chooseRandomDirection(bot){
   // Набор базовых поворотов: налево, направо, разворот, чуть-чуть
   const yawOptions = [
     Math.PI/2, -Math.PI/2, Math.PI, 0,
     Math.PI/4, -Math.PI/4
   ];
-  const pick = rndChoice(yawOptions);
-  await lookRelative(bot, pick);
+  // Предпочитаем направление с минимальной угрозой
+  let best = yawOptions[0], bestScore = Infinity;
+  for(const delta of yawOptions){
+    const sc = scoreYaw(bot, delta);
+    if(sc < bestScore){ bestScore = sc; best = delta; }
+  }
+  await lookRelative(bot, best);
   if(perf?.cd && !perf.cd('look',120)) await waitTicks(bot,1);
 }
 
@@ -281,6 +319,14 @@ async function prettyStep(bot, ctx){
     bot.chat('⚠️ Моб! Поворачиваю и отступаю');
     await lookRelative(bot, Math.PI);
     await waitTicks(bot,2);
+    return false;
+  }
+
+  // Проверяем ближайшие 2 блока по ходу — если жидкость, пробуем запечатать и сменить курс
+  const danger = dangerAhead(bot,2);
+  if(danger){
+    if(isLiquidName(danger.name)) await seal(bot, danger.pos);
+    bot.chat('🌊 Опасность впереди, меняю маршрут');
     return false;
   }
 
@@ -339,9 +385,10 @@ async function tunnelLoop(bot, ctx){
       }
 
       case STATE.AVOID_HAZARD:
-        // Простой манёвр: развернуться и сделать маленький шаг назад
-        await lookRelative(bot, Math.PI/2 * rndChoice([1,-1])); // вбок
-        await waitTicks(bot,1);
+        // Манёвр: отходим назад и ищем более безопасный угол
+        try{ bot.setControlState('back', true); await waitTicks(bot,3); }catch{}
+        try{ bot.setControlState('back', false); }catch{}
+        await chooseRandomDirection(bot);
         ctx.state = STATE.CHOOSE_DIR;
         break;
 
