@@ -308,13 +308,16 @@ minecraft-bot/
 
 | Модуль/папка                                   | Роль                                                                          |
 | ---------------------------------------------- | ----------------------------------------------------------------------------- |
-| `ai/brain.cjs`                                 | Микроповедение: настроение, «тихий режим», фразы, погода/день‑ночь, анти‑спам |
-| `ai/experience.cjs`                            | Офлайн‑память: Байес/EMA/Welford, LRU, безопасные сейвы, доменные советы      |
+| `ai/brain.cjs`                                 | Микроповедение: настроение, «тихий режим», фразы, погода/день-ночь, анти-спам |
+| `ai/experience.cjs`                            | Офлайн-память: Байес/EMA/Welford, LRU, безопасные сейвы, доменные советы      |
 | `ai/xpHelpers.cjs`                             | Универсальный адаптер доступа к опыту                                         |
 | `ai/quantum/*`                                 | Стохастика решений: суперпозиция, смесь экспертов, запутанность, декогеренция |
-| `combat/combat.js`, `combat/advancedCombat.js` | Бой: укрытия, ретрит+хил, ETA стрел, щит, стрейф, круг, анти‑залипание        |
-| `environment/adaptive.cjs`                     | Реакции на биомы/ночь/освещение/опасности                                     |
-> ⚙️ �� ����� �������� basic combat (`combat/combat.js`). �������� experimental advanced AI можно, если в `.env` указать `COMBAT_ADVANCED=true`.
+| `combat/combat.js`, `combat/advancedCombat.js` | Бой: укрытия, ретрит+хил, ETA стрел, щит, стрейф, круг, анти-залипание        |
+| `environment/adaptive.cjs`                     | Реакции на биомы, ночь, освещение, опасности                                  |
+
+> ⚙️ По умолчанию используется **basic combat** (`combat/combat.js`).  
+> Включить экспериментальный продвинутый ИИ можно, указав в `.env`:  
+> `COMBAT_ADVANCED=true`
 
 ### Чат и реплики
 - `CHAT_RESP_CHANCE`, `CHAT_RESP_COOLDOWN_MS` — как часто бот отвечает на бытовые команды/фразы.
@@ -343,13 +346,13 @@ minecraft-bot/
 ---
 
 ## 👑 Автор и ссылки
-
+```text
 **Автор:** Promaster Development
 📧 Email: [Promastergamer.brawlstars@gmail.com](mailto:Promastergamer.brawlstars@gmail.com)
 💻 GitHub: [github.com/Promastergame](https://github.com/Promastergame)
 🎮 TikTok: [@promasteraigames](https://www.tiktok.com/@promasteraigames)
 🧱 Minecraft account: **Promaster_Game** (Bedrock tag: **Promaster15087**)
-
+```
 ---
 
 ## 📜 Лицензия (Версия лицензии: 1.0. Последнее обновление: 2025.10.10)
@@ -406,17 +409,13 @@ HelperBot Pro — это не просто бот, а настоящий нап�
 
 Максимум мозгов при минимуме нагрузки.
 
-
-
-
-
-
 ## Logs
-- File logs are written to ./logs/<category>-YYYY-MM-DD.log.
-- Configure via .env:
-  - LOG_DIR (default logs)
-  - LOG_LEVEL (debug|info|warn|error, default info)
-  - LOG_TO_CONSOLE (mirror to console, default alse)
-  - LOG_JSON (JSON lines output, default alse)
-  - LOG_DEBUG (enable debug for categories, e.g. combat,miner,ai.* or *).
-- Categories added: core.bot, combat, miner, woodcutter, 	rading, armer.
+
+- File logs are written to `./logs/<category>-YYYY-MM-DD.log`.
+- Configure via `.env`:
+  - `LOG_DIR` — directory for log files (default: `logs`)
+  - `LOG_LEVEL` — `debug | info | warn | error` (default: `info`)
+  - `LOG_TO_CONSOLE` — also print logs to console (default: false)
+  - `LOG_JSON` — output logs as JSON lines (default: false)
+  - `LOG_DEBUG` — enable debug for selected categories (e.g. `combat`, `miner`, `ai.*`, or `*` for all)
+- Categories added: `core.bot`, `combat`, `miner`, `woodcutter`, `trading`, `farmer`.
