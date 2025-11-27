@@ -206,6 +206,7 @@ Viewer/Служебные
 
 - `integrations/telegramAutoCraft.js` — архивный пример, по умолчанию не используется. Активен Telegraf из `integrations/telegram.js`.## 📁 Структура проекта
 
+```text
 minecraft-bot/
 ├── core/                        # Сердце бота
 │   ├── bot.cjs                  # Запуск и управление ботом
@@ -300,7 +301,7 @@ minecraft-bot/
 ├── package-lock.json
 ├── package.json
 └── README.md
-
+```
 ---
 
 ## 🧠 Модули ИИ
