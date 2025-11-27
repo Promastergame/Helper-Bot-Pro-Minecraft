@@ -1,0 +1,180 @@
+{
+  "meta": {
+    "version": 3,
+    "createdAt": 1762179223799,
+    "lastSave": 1762689921350,
+    "dailySeed": 0
+  },
+  "skills": {
+    "combat": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "mining": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "woodcutting": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "building": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "crafting": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "smelting": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "explore": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "agility": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "defense": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    },
+    "utility": {
+      "xp": 0,
+      "level": 1,
+      "lastAt": 0,
+      "restXP": 0,
+      "perks": {},
+      "history": []
+    }
+  },
+  "buffs": {},
+  "quests": {
+    "active": [
+      {
+        "id": "smelt_64",
+        "title": "Переплавить 64 предм.",
+        "goal": 64,
+        "progress": 0,
+        "skill": "smelting",
+        "rewardXP": {
+          "smelting": 120
+        },
+        "progressField": "smelt_made"
+      },
+      {
+        "id": "combat_10",
+        "title": "Выиграть 10 боёв",
+        "goal": 10,
+        "progress": 0,
+        "skill": "combat",
+        "rewardXP": {
+          "combat": 160
+        },
+        "progressField": "combat_win"
+      },
+      {
+        "id": "craft_10",
+        "title": "Скрафтить 10 рецептов",
+        "goal": 10,
+        "progress": 0,
+        "skill": "crafting",
+        "rewardXP": {
+          "crafting": 120
+        },
+        "progressField": "craft_count"
+      }
+    ],
+    "expiresAt": 1762711199999
+  },
+  "achievements": {},
+  "ctx": {
+    "combat": {
+      "wins": 0,
+      "fights": 0,
+      "dmgTaken": 0
+    },
+    "mining": {
+      "total": 0,
+      "iron": 0,
+      "gold": 0,
+      "diamond": 0,
+      "other": 0,
+      "blocks": 0
+    },
+    "woodcutting": {
+      "total": 0,
+      "saplings": 0,
+      "count": 0
+    },
+    "building": {
+      "placed": 0,
+      "miss": 0
+    },
+    "crafting": {
+      "total": 0,
+      "count": 0
+    },
+    "smelting": {
+      "made": 0
+    },
+    "explore": {
+      "dist": 0
+    },
+    "agility": {
+      "travel": 0,
+      "jumps": 0,
+      "falls": 0
+    },
+    "defense": {
+      "blocked": 0,
+      "avoided": 0
+    },
+    "utility": {
+      "tasks": 0,
+      "success": 0
+    },
+    "_meta": {
+      "skillsAtLeast10": false
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "version": 1,
+    "createdAt": 1759938203975,
+    "lastSave": 1762689921352,
+    "totalEvents": 0
+  },
+  "entries": {
+    "combat:phantom|a1b9dce3d1cebd7b": {
+      "tries": 0,
+      "success": 0,
+      "fail": 0,
+      "lastAt": 1762688857593,
+      "decayedAt": 1762688833950,
+      "ema": {
+        "time": null,
+        "damage": null,
+        "cost": null,
+        "reward": null
+      },
+      "stats": {
+        "time": {
+          "n": 0,
+          "mean": 0,
+          "m2": 0
+        },
+        "damage": {
+          "n": 0,
+          "mean": 0,
+          "m2": 0
+        },
+        "cost": {
+          "n": 0,
+          "mean": 0,
+          "m2": 0
+        },
+        "reward": {
+          "n": 0,
+          "mean": 0,
+          "m2": 0
+        }
+      },
+      "weights": {},
+      "ctx": {
+        "night": false,
+        "biome": null
+      }
+    }
+  }
+}

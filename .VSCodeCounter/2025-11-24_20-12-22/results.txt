@@ -1,0 +1,120 @@
+Date : 2025-11-24 20:12:22
+Directory : c:\minecraft-bot
+Total : 70 files,  21585 codes, 2675 comments, 2604 blanks, all 26864 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JavaScript |         54 |     16,123 |      2,618 |      2,477 |     21,218 |
+| JSON       |          7 |      4,975 |          0 |          2 |      4,977 |
+| Markdown   |          1 |        323 |          0 |         99 |        422 |
+| Dotenv     |          2 |         91 |         57 |         20 |        168 |
+| Log        |          6 |         73 |          0 |          6 |         79 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                       | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                          |         70 |     21,585 |      2,675 |      2,604 |     26,864 |
+| . (Files)                                                  |          6 |      5,586 |        134 |        183 |      5,903 |
+| core                                                       |          7 |      1,187 |        162 |        192 |      1,541 |
+| data                                                       |          5 |        245 |          0 |          0 |        245 |
+| features                                                   |         44 |     13,669 |      2,291 |      2,125 |     18,085 |
+| features (Files)                                           |          3 |        446 |         59 |         75 |        580 |
+| features\ai                                                |         17 |      4,292 |        941 |        745 |      5,978 |
+| features\ai (Files)                                        |          8 |      2,163 |        397 |        345 |      2,905 |
+| features\ai\agents                                         |          3 |        980 |        133 |        159 |      1,272 |
+| features\ai\quantum                                        |          6 |      1,149 |        411 |        241 |      1,801 |
+| features\building                                          |          2 |        957 |        164 |        138 |      1,259 |
+| features\combat                                            |          2 |      1,237 |        139 |        222 |      1,598 |
+| features\crafting                                          |          3 |        768 |        138 |        103 |      1,009 |
+| features\economy                                           |          2 |      1,067 |        108 |        153 |      1,328 |
+| features\environment                                       |          1 |        407 |         52 |         43 |        502 |
+| features\exploration                                       |          5 |      1,795 |        236 |        260 |      2,291 |
+| features\magic                                             |          3 |        944 |        188 |        145 |      1,277 |
+| features\mining                                            |          1 |        293 |         70 |         54 |        417 |
+| features\quests                                            |          2 |        205 |         41 |         36 |        282 |
+| features\structures                                        |          1 |        808 |         65 |         73 |        946 |
+| features\utils                                             |          2 |        450 |         90 |         78 |        618 |
+| integrations                                               |          2 |        825 |         88 |         98 |      1,011 |
+| logs                                                       |          6 |         73 |          0 |          6 |         79 |
++------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                   | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\minecraft-bot\.env                                      | Dotenv     |         48 |         30 |         10 |         88 |
+| c:\minecraft-bot\README.md                                 | Markdown   |        323 |          0 |         99 |        422 |
+| c:\minecraft-bot\core\bot.cjs                              | JavaScript |        591 |         57 |         73 |        721 |
+| c:\minecraft-bot\core\logger.cjs                           | JavaScript |        106 |          5 |         19 |        130 |
+| c:\minecraft-bot\core\plugins.cjs                          | JavaScript |         39 |         14 |         17 |         70 |
+| c:\minecraft-bot\core\saver.cjs                            | JavaScript |         44 |          9 |          8 |         61 |
+| c:\minecraft-bot\core\state.cjs                            | JavaScript |        287 |         59 |         52 |        398 |
+| c:\minecraft-bot\core\utils.cjs                            | JavaScript |         53 |         10 |          9 |         72 |
+| c:\minecraft-bot\core\viewer.cjs                           | JavaScript |         67 |          8 |         14 |         89 |
+| c:\minecraft-bot\data\botStats.json                        | JSON       |         13 |          0 |          0 |         13 |
+| c:\minecraft-bot\data\experience.json                      | JSON       |         50 |          0 |          0 |         50 |
+| c:\minecraft-bot\data\minerState.json                      | JSON       |          1 |          0 |          0 |          1 |
+| c:\minecraft-bot\data\skills.json                          | JSON       |        180 |          0 |          0 |        180 |
+| c:\minecraft-bot\data\waypoints.json                       | JSON       |          1 |          0 |          0 |          1 |
+| c:\minecraft-bot\features\ai\agents\miner.cjs              | JavaScript |        608 |         69 |         93 |        770 |
+| c:\minecraft-bot\features\ai\agents\minerCore.cjs          | JavaScript |        310 |         63 |         50 |        423 |
+| c:\minecraft-bot\features\ai\agents\woodcutter.cjs         | JavaScript |         62 |          1 |         16 |         79 |
+| c:\minecraft-bot\features\ai\brain_light.cjs               | JavaScript |        411 |         70 |         73 |        554 |
+| c:\minecraft-bot\features\ai\experience.cjs                | JavaScript |        417 |         88 |         75 |        580 |
+| c:\minecraft-bot\features\ai\goap.cjs                      | JavaScript |         42 |          4 |         11 |         57 |
+| c:\minecraft-bot\features\ai\masterAI.cjs                  | JavaScript |        272 |         53 |         45 |        370 |
+| c:\minecraft-bot\features\ai\policy.cjs                    | JavaScript |         38 |          2 |         11 |         51 |
+| c:\minecraft-bot\features\ai\quantum\core.cjs              | JavaScript |        305 |         65 |         55 |        425 |
+| c:\minecraft-bot\features\ai\quantum\decoherence.cjs       | JavaScript |        186 |         71 |         50 |        307 |
+| c:\minecraft-bot\features\ai\quantum\entanglement.cjs      | JavaScript |        181 |        104 |         39 |        324 |
+| c:\minecraft-bot\features\ai\quantum\index.cjs             | JavaScript |        191 |         23 |         39 |        253 |
+| c:\minecraft-bot\features\ai\quantum\superposition.cjs     | JavaScript |        248 |        123 |         49 |        420 |
+| c:\minecraft-bot\features\ai\quantum\test-quantum.js       | JavaScript |         38 |         25 |          9 |         72 |
+| c:\minecraft-bot\features\ai\skillBrain.cjs                | JavaScript |        741 |        117 |         85 |        943 |
+| c:\minecraft-bot\features\ai\telemetry.cjs                 | JavaScript |         16 |          2 |          8 |         26 |
+| c:\minecraft-bot\features\ai\xpHelpers.cjs                 | JavaScript |        226 |         61 |         37 |        324 |
+| c:\minecraft-bot\features\building\building.js             | JavaScript |        479 |         75 |         69 |        623 |
+| c:\minecraft-bot\features\building\smelting.js             | JavaScript |        478 |         89 |         69 |        636 |
+| c:\minecraft-bot\features\combat\advancedCombat.js         | JavaScript |        802 |         60 |        147 |      1,009 |
+| c:\minecraft-bot\features\combat\combat.js                 | JavaScript |        435 |         79 |         75 |        589 |
+| c:\minecraft-bot\features\crafting\autoCrafter.js          | JavaScript |        222 |         42 |         40 |        304 |
+| c:\minecraft-bot\features\crafting\crafting.js             | JavaScript |        355 |         53 |         35 |        443 |
+| c:\minecraft-bot\features\crafting\smartCraft.js           | JavaScript |        191 |         43 |         28 |        262 |
+| c:\minecraft-bot\features\economy\inventory.js             | JavaScript |        409 |         82 |         78 |        569 |
+| c:\minecraft-bot\features\economy\trading.js               | JavaScript |        658 |         26 |         75 |        759 |
+| c:\minecraft-bot\features\environment\adaptive.cjs         | JavaScript |        407 |         52 |         43 |        502 |
+| c:\minecraft-bot\features\exploration\fun.js               | JavaScript |        668 |        101 |        111 |        880 |
+| c:\minecraft-bot\features\exploration\humanMove.cjs        | JavaScript |        483 |         74 |         51 |        608 |
+| c:\minecraft-bot\features\exploration\navigation.js        | JavaScript |        129 |         47 |         24 |        200 |
+| c:\minecraft-bot\features\exploration\structureExplorer.js | JavaScript |        394 |         10 |         56 |        460 |
+| c:\minecraft-bot\features\exploration\woodcutter.cjs       | JavaScript |        121 |          4 |         18 |        143 |
+| c:\minecraft-bot\features\leveling.js                      | JavaScript |        178 |         22 |         31 |        231 |
+| c:\minecraft-bot\features\magic\brewing.js                 | JavaScript |        380 |         75 |         49 |        504 |
+| c:\minecraft-bot\features\magic\enchantments.js            | JavaScript |        363 |         73 |         61 |        497 |
+| c:\minecraft-bot\features\magic\spells.js                  | JavaScript |        201 |         40 |         35 |        276 |
+| c:\minecraft-bot\features\mining\mining.js                 | JavaScript |        293 |         70 |         54 |        417 |
+| c:\minecraft-bot\features\quests\levelingBridge.js         | JavaScript |         41 |         13 |          9 |         63 |
+| c:\minecraft-bot\features\quests\questSystem.js            | JavaScript |        164 |         28 |         27 |        219 |
+| c:\minecraft-bot\features\structures\structureManager.js   | JavaScript |        808 |         65 |         73 |        946 |
+| c:\minecraft-bot\features\utils.cjs                        | JavaScript |         79 |         13 |         13 |        105 |
+| c:\minecraft-bot\features\utils\fsx.js                     | JavaScript |         17 |          0 |          4 |         21 |
+| c:\minecraft-bot\features\utils\helpers.js                 | JavaScript |        433 |         90 |         74 |        597 |
+| c:\minecraft-bot\features\waypoints.cjs                    | JavaScript |        189 |         24 |         31 |        244 |
+| c:\minecraft-bot\index.cjs                                 | JavaScript |        442 |         77 |         62 |        581 |
+| c:\minecraft-bot\integrations\telegram.js                  | JavaScript |        356 |         36 |         50 |        442 |
+| c:\minecraft-bot\integrations\telegramAutoCraft.js         | JavaScript |        469 |         52 |         48 |        569 |
+| c:\minecraft-bot\logs\combat-2025-11-09.log                | Log        |          0 |          0 |          1 |          1 |
+| c:\minecraft-bot\logs\core.bot-2025-11-09.log              | Log        |         39 |          0 |          1 |         40 |
+| c:\minecraft-bot\logs\miner-2025-11-09.log                 | Log        |          0 |          0 |          1 |          1 |
+| c:\minecraft-bot\logs\session_2025-11-09T09-36-26-882Z.log | Log        |          6 |          0 |          1 |          7 |
+| c:\minecraft-bot\logs\session_2025-11-09T11-46-48-684Z.log | Log        |          6 |          0 |          1 |          7 |
+| c:\minecraft-bot\logs\telemetry-2025-11-09.log             | Log        |         22 |          0 |          1 |         23 |
+| c:\minecraft-bot\package-lock.json                         | JSON       |      4,676 |          0 |          1 |      4,677 |
+| c:\minecraft-bot\package.json                              | JSON       |         54 |          0 |          1 |         55 |
+| c:\minecraft-bot\temp.env                                  | Dotenv     |         43 |         27 |         10 |         80 |
+| Total                                                      |            |     21,585 |      2,675 |      2,604 |     26,864 |
++------------------------------------------------------------+------------+------------+------------+------------+------------+

@@ -1,0 +1,54 @@
+{
+  "name": "helperbot-pro",
+  "version": "6.0.0",
+  "description": "🤖 HelperBot Pro — продвинутый Minecraft-бот с AI, автокрафтом, Telegram и Viewer.",
+  "author": "Promaster Development",
+  "license": "MIT",
+  "main": "index.cjs",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node index.cjs",
+    "dev": "nodemon index.cjs --delay 200ms --ignore data/ --ignore logs/",
+    "debug": "node --inspect index.cjs",
+    "clean": "rimraf node_modules && npm install",
+    "check": "node -c index.cjs",
+    "convert": "node convert-to-cjs.cjs"
+  },
+  "dependencies": {
+    "canvas": "^3.2.0",
+    "dotenv": "^16.6.1",
+    "mineflayer": "^4.33.0",
+    "mineflayer-collectblock": "^1.6.0",
+    "mineflayer-pathfinder": "^2.4.5",
+    "prismarine-viewer": "^1.30.0",
+    "puppeteer": "^23.7.0",
+    "telegraf": "^4.16.3",
+    "vec3": "^0.1.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "rimraf": "^5.0.5"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "core",
+      "features",
+      "integrations"
+    ],
+    "ext": "js,cjs,json",
+    "exec": "node index.cjs"
+  },
+  "keywords": [
+    "minecraft",
+    "mineflayer",
+    "bot",
+    "telegram",
+    "ai",
+    "automation",
+    "minecraft-bot",
+    "helperbot"
+  ]
+}

@@ -1,0 +1,39 @@
+2025-11-09T06:28:09.989Z WARN [core.bot] death
+2025-11-09T06:28:09.993Z INFO [core.bot] respawn
+2025-11-09T06:29:36.105Z WARN [core.bot] death
+2025-11-09T06:29:36.107Z INFO [core.bot] respawn
+2025-11-09T06:30:12.408Z WARN [core.bot] death
+2025-11-09T06:30:12.441Z INFO [core.bot] respawn
+2025-11-09T06:30:35.178Z WARN [core.bot] death
+2025-11-09T06:30:35.182Z INFO [core.bot] respawn
+2025-11-09T06:43:39.237Z INFO [core.bot] spawn | {"pos":{"x":-89,"y":110,"z":202},"dim":"overworld"}
+2025-11-09T06:44:23.008Z WARN [core.bot] death | {"pos":{"x":-548,"y":49,"z":428},"dim":"overworld","near":{"id":5698,"name":"salmon","type":"water_creature","dist":7.48}}
+2025-11-09T06:44:23.012Z INFO [core.bot] respawn | {"pos":{"x":-548,"y":49,"z":428},"dim":"overworld"}
+2025-11-09T06:44:23.197Z INFO [core.bot] spawn | {"pos":{"x":-5,"y":107,"z":6},"dim":"overworld"}
+2025-11-09T06:44:57.368Z WARN [core.bot] death | {"pos":{"x":-543,"y":47,"z":429},"dim":"overworld","near":{"id":5698,"name":"salmon","type":"water_creature","dist":14.35}}
+2025-11-09T06:44:57.370Z INFO [core.bot] respawn | {"pos":{"x":-543,"y":47,"z":429},"dim":"overworld"}
+2025-11-09T06:44:57.549Z INFO [core.bot] spawn | {"pos":{"x":-7,"y":109,"z":1},"dim":"overworld"}
+2025-11-09T06:45:32.149Z WARN [core.bot] death | {"pos":{"x":-643,"y":111,"z":419},"dim":"overworld","near":{"id":6164,"name":"zombie","type":"hostile","dist":1.41}}
+2025-11-09T06:45:32.151Z INFO [core.bot] respawn | {"pos":{"x":-643,"y":111,"z":419},"dim":"overworld"}
+2025-11-09T06:45:32.315Z INFO [core.bot] spawn | {"pos":{"x":-3,"y":104,"z":-9},"dim":"overworld"}
+2025-11-09T06:47:44.192Z INFO [core.bot] spawn | {"pos":{"x":-3,"y":104,"z":-9},"dim":"overworld"}
+2025-11-09T08:26:59.172Z INFO [core.bot] spawn | {"pos":{"x":-637,"y":109,"z":423},"dim":"overworld"}
+2025-11-09T08:30:59.092Z WARN [core.bot] death | {"pos":{"x":-631,"y":85,"z":432},"dim":"overworld","near":{"id":229,"name":"player","type":"player","dist":5.3},"equip":{"main":"allium"}}
+2025-11-09T08:30:59.098Z INFO [core.bot] respawn | {"pos":{"x":-631,"y":85,"z":432},"dim":"overworld"}
+2025-11-09T08:30:59.285Z INFO [core.bot] spawn | {"pos":{"x":1,"y":103,"z":-9},"dim":"overworld"}
+2025-11-09T08:38:01.900Z INFO [core.bot] spawn | {"pos":{"x":1,"y":103,"z":-9},"dim":"overworld"}
+2025-11-09T08:43:19.125Z WARN [core.bot] death | {"pos":{"x":-666,"y":75,"z":496},"dim":"overworld","near":{"id":229,"name":"player","type":"player","dist":4.39},"equip":{"main":"dirt"}}
+2025-11-09T08:43:19.131Z INFO [core.bot] respawn | {"pos":{"x":-666,"y":75,"z":496},"dim":"overworld"}
+2025-11-09T08:43:19.264Z INFO [core.bot] spawn | {"pos":{"x":-7,"y":106,"z":-4},"dim":"overworld"}
+2025-11-09T09:31:31.755Z INFO [core.bot] spawn | {"pos":{"x":-7,"y":106,"z":-4},"dim":"overworld"}
+2025-11-09T09:36:39.777Z INFO [core.bot] spawn | {"pos":{"x":-615,"y":105,"z":407},"dim":"overworld"}
+2025-11-09T09:36:58.810Z WARN [core.bot] death | {"pos":{"x":-614,"y":104,"z":403},"dim":"overworld","near":{"id":8315,"name":"item","type":"other","dist":5.8}}
+2025-11-09T09:36:58.822Z INFO [core.bot] respawn | {"pos":{"x":-614,"y":104,"z":403},"dim":"overworld"}
+2025-11-09T09:36:58.966Z INFO [core.bot] spawn | {"pos":{"x":-1,"y":106,"z":5},"dim":"overworld"}
+2025-11-09T09:37:24.418Z WARN [core.bot] death | {"pos":{"x":-1,"y":106,"z":4},"dim":"overworld","near":{"id":8453,"name":"item","type":"other","dist":0.67}}
+2025-11-09T09:37:24.421Z INFO [core.bot] respawn | {"pos":{"x":-1,"y":106,"z":4},"dim":"overworld"}
+2025-11-09T09:37:24.628Z INFO [core.bot] spawn | {"pos":{"x":3,"y":101,"z":-1},"dim":"overworld"}
+2025-11-09T11:47:01.861Z INFO [core.bot] spawn | {"pos":{"x":7,"y":102,"z":-3},"dim":"overworld"}
+2025-11-09T12:05:21.346Z INFO [core.bot] end | {"reason":"socketClosed"}
+2025-11-09T12:05:26.050Z ERROR [core.bot] error | {"code":"ECONNREFUSED","message":"AggregateError"}
+2025-11-09T12:05:26.051Z INFO [core.bot] end | {"reason":"socketClosed"}
