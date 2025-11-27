@@ -54,8 +54,8 @@
 2. Склонируй и установи зависимости:
 
    ```bash
-   git clone https://github.com/promaster-dev/helperbot-pro.git
-   cd helperbot-pro
+   git clone https://github.com/Promastergame/Helper-Bot-Pro-Minecraft.git
+   cd minecraft-bot
    npm install
    ```
 3. Скопируй `.env.example` → `.env` и заполни:
@@ -350,7 +350,7 @@ minecraft-bot/
 **Автор:** Promaster Development  
 📧 Email: [Promastergamer.brawlstars@gmail.com](mailto:Promastergamer.brawlstars@gmail.com)  
 💻 GitHub: https://github.com/Promastergame  
-🎮 TikTok: https://www.tiktok.com/@promasteraigames  
+🎮 TikTok: https://www.tiktok.com/@promaster_development
 🧱 Minecraft: **Promaster_Game** (Bedrock: **Promaster15087**)
 
 ---
