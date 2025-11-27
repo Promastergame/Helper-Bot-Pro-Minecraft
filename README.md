@@ -19,7 +19,7 @@
 * [⌨️ Команды в игре](#️-команды-в-игре)
 * [📱 Telegram‑команды](#-telegram-команды)
 * [📁 Структура проекта](#-структура-проекта)
-* [🧠 Модули ИИ](#-модули ии)
+* [🧠 Модули ИИ](#-модули-ии)
 * [🧯 Частые ошибки](#-частые-ошибки)
 * [🔐 Безопасность](#-безопасность)
 * [👑 Автор и ссылки](#-автор-и-ссылки)
@@ -346,13 +346,13 @@ minecraft-bot/
 ---
 
 ## 👑 Автор и ссылки
-```text
-**Автор:** Promaster Development
-📧 Email: [Promastergamer.brawlstars@gmail.com](mailto:Promastergamer.brawlstars@gmail.com)
-💻 GitHub: [github.com/Promastergame](https://github.com/Promastergame)
-🎮 TikTok: [@promasteraigames](https://www.tiktok.com/@promasteraigames)
-🧱 Minecraft account: **Promaster_Game** (Bedrock tag: **Promaster15087**)
-```
+
+**Автор:** Promaster Development  
+📧 Email: [Promastergamer.brawlstars@gmail.com](mailto:Promastergamer.brawlstars@gmail.com)  
+💻 GitHub: https://github.com/Promastergame  
+🎮 TikTok: https://www.tiktok.com/@promasteraigames  
+🧱 Minecraft: **Promaster_Game** (Bedrock: **Promaster15087**)
+
 ---
 
 ## 📜 Лицензия (Версия лицензии: 1.0. Последнее обновление: 2025.10.10)
