@@ -80,7 +80,7 @@ async function smartChop(bot, qty=8, radius=28, only){
   const task=createTaskController(bot);
   try{ const mc=require('minecraft-data')(bot.version); const { Movements } = require('mineflayer-pathfinder'); const mv=new Movements(bot,mc); mv.allowSprinting=true; mv.canDig=true; bot.pathfinder.setMovements(mv); }catch{}
   await equipBestAxe(bot);
-  let cut=0,attempts=0;
+  let cut=0,attempts=0, lastStand=null;
   while((qty===Infinity || cut<qty) && attempts<(qty===Infinity?9e6:qty*6)){
     if(task.isCanceled()) break; attempts++;
     const trunkBlock=pickNearestLogBlock(bot, radius, only);
@@ -88,7 +88,21 @@ async function smartChop(bot, qty=8, radius=28, only){
     const basePos=trunkBlock && findTrunkBase(bot, trunkBlock.position); if(!basePos){ await sleep(120); continue; }
     const cand=[new Vec3(1,0,0),new Vec3(-1,0,0),new Vec3(0,0,1),new Vec3(0,0,-1)].map(v=>basePos.plus(v));
     const stand=cand.find(p=>walkable(bot,p)) || cand[0];
-    try{ const { goals } = require('mineflayer-pathfinder'); await bot.pathfinder.goto(new goals.GoalNear(stand.x, stand.y, stand.z, 1)); }catch{}
+    try{
+      const me = selfPos(bot);
+      const dist = Math.sqrt(distSq(me, stand));
+      const sameSpot = lastStand && stand && stand.x===lastStand.x && stand.y===lastStand.y && stand.z===lastStand.z;
+      if(!Number.isFinite(dist) || dist > 1.3){
+        const { goals } = require('mineflayer-pathfinder');
+        await bot.pathfinder.goto(new goals.GoalNear(stand.x, stand.y, stand.z, 1));
+      } else if (sameSpot && dist < 0.8) {
+        // уже рядом и на том же месте — не дёргаем pathfinder лишний раз
+      } else if (dist > 0.8) {
+        const { goals } = require('mineflayer-pathfinder');
+        await bot.pathfinder.goto(new goals.GoalNear(stand.x, stand.y, stand.z, 1));
+      }
+    }catch{}
+    lastStand = stand;
     for(let h=0; h<3 && (qty===Infinity || cut<qty); h++){
       if(task.isCanceled()) break; const pos=basePos.offset(0,h,0); const block=bot.blockAt(pos);
       if(!block || (!WOOD_LOGS.has(block.name) && !/(_log|_stem)$/.test(block.name))) break;

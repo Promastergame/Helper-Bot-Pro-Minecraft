@@ -16,6 +16,7 @@ const path = require('path');
 const APP_NAME    = 'HelperBot ';
 const APP_VERSION = '7.5';
 const BRAND       = 'Promaster Development';
+const ANIMATE_LOGO = String(process.env.ANIMATE_LOGO || 'false').toLowerCase() === 'true';
 
 // ──────────────────────────────────────────
 /* 🎨 ANSI-утилиты */
@@ -121,7 +122,7 @@ function neonText(s, phase=0, makeBold=true){
 /* ⌗ Большое лого (СТАТИЧНОЕ) */
 // ──────────────────────────────────────────
 const NEON_LOGO = `
- ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄            ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+ ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄            ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄
 ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░▌          ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
 ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░▌          ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ 
 ▐░▌       ▐░▌▐░▌          ▐░▌          ▐░▌       ▐░▌▐░▌          ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     
@@ -130,7 +131,7 @@ const NEON_LOGO = `
 ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀▀▀ ▐░▌          ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀ ▐░█▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌     ▐░▌     
 ▐░▌       ▐░▌▐░▌          ▐░▌          ▐░▌          ▐░▌          ▐░▌     ▐░▌  ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌     
 ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌          ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌      ▐░▌ ▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌     ▐░▌     
-▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌          ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌     ▐░▌     
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌          ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌     ▐░▌
  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀            ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀▀▀▀▀▀▀▀▀▀   ▀▀▀▀▀▀▀▀▀▀▀       ▀
 `.trim();
 
@@ -197,12 +198,34 @@ async function typeLine(line, delay = 10) {
 // ──────────────────────────────────────────
 /* 🧠 Boot (без анимированного лого) */
 // ──────────────────────────────────────────
+function renderLogoFrame(lines, phase=0){
+  const framed = lines.map((ln, idx) => neonText(ln, phase + idx * 0.18));
+  process.stdout.write(ansi.clr + ansi.home + ansi.bold + framed.join('\n') + ansi.reset + '\n');
+}
+
+async function renderLogoIntro(){
+  const lines = NEON_LOGO.split('\n');
+  if(!ANIMATE_LOGO){
+    renderLogoFrame(lines, 0.2);
+    console.log();
+    return;
+  }
+
+  hideCursor();
+  for(let f=0; f<14; f++){
+    renderLogoFrame(lines, 0.35 * f);
+    await sleep(70);
+  }
+  showCursor();
+  console.log();
+}
+
 async function cyberBoot(finalMode = 'ok', percentFallback = 87) {
   clearScreen();
-  // Статический логотип
-  const lines = NEON_LOGO.split('\n');
-  const framed = lines.map((ln, idx) => neonText(ln, idx * 0.2));
-  console.log(ansi.bold + framed.join('\n') + ansi.reset + '\n');
+  await renderLogoIntro();
+  console.log(c.gray(ANIMATE_LOGO
+    ? 'Лого: анимированное (ANIMATE_LOGO=true)'
+    : 'Лого: статичное (ANIMATE_LOGO=false — включи флаг для анимации)'));
   console.log(neonText(`⚡ Запуск ${APP_NAME} v${APP_VERSION}`, 0.6));
   console.log();
 

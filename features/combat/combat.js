@@ -52,6 +52,7 @@ const COMBAT_CHATTER_CHANCE = Math.max(0, Math.min(1, parseFloat(process.env.COM
 const COMBAT_CHATTER_COOLDOWN_MS = Math.max(0, parseInt(process.env.COMBAT_CHATTER_COOLDOWN_MS ?? '3200', 10));
 let lastCombatChatterAt = 0;
 const PVP_HARD_DISABLED = true;
+const COMBAT_HARD_DISABLED = String(process.env.COMBAT_DISABLE_ALL || 'false').toLowerCase() === 'true';
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Утилиты
@@ -373,6 +374,8 @@ function ensureInit(bot){
 function isRangedThreat(e){ return e && (normName(e.name)==='skeleton' || normName(e.name)==='witch' || normName(e.name)==='ghast'); }
 function isCreeperPrimed(e){ try { return normName(e.name)==='creeper' && e.metadata && e.metadata[12] > 0; } catch { return false; } }
 
+let followAndHitHook = null;
+
 async function followAndHit(bot, entity, attempts = 24){
   const st = ensureInit(bot);
   if (st.running) return;
@@ -548,8 +551,10 @@ async function attackByName(bot, targetToken){
 
   // игрок? → блок
   const isPlayer = Object.keys(bot.players || {}).some(p => p && p.toLowerCase() === String(targetToken).toLowerCase());
-  if (isPlayer || PVP_HARD_DISABLED) {
-    try { bot.emit('chat:tryAttackPlayer', targetToken); } catch {}
+  if ((isPlayer && PVP_HARD_DISABLED) || COMBAT_HARD_DISABLED) {
+    if (isPlayer) {
+      try { bot.emit('chat:tryAttackPlayer', targetToken); } catch {}
+    }
     await humanSay(say, pick(PHRASES.pvpBlocked), { minMs:380, maxMs:850 });
     return false;
   }
@@ -565,7 +570,8 @@ async function attackByName(bot, targetToken){
   if (!cand) { await humanSay(say, pick(PHRASES.cantSeeMob), { minMs:350, maxMs:800 }); return false; }
 
   await humanSay(say, `⚔️ Цель: ${normName(cand.name)}`, { minMs:350, maxMs:800 });
-  await followAndHit(bot, cand, 24);
+  const execFollowAndHit = followAndHitHook || followAndHit;
+  await execFollowAndHit(bot, cand, 24);
   return true;
 }
 
@@ -578,11 +584,15 @@ function initCombat(bot){
   // guardTick дергай из твоего цикла/physicsTick или setInterval с учётом state.protectMode
 }
 
+// для тестов
+function _setFollowAndHitHook(fn){ followAndHitHook = typeof fn === 'function' ? fn : null; }
+
 module.exports = {
   initCombat,
   equipBest,
   followAndHit,
   guardTick,
-  attackByName
+  attackByName,
+  _setFollowAndHitHook
 };
 
